@@ -2171,11 +2171,11 @@
 											"containerExtending": false,
 											"left": 77,
 											"top": 391,
-											"width": 65,
+											"width": 98,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Movement",
+											"text": "TrackMovement",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2240,7 +2240,7 @@
 									"containerExtending": false,
 									"left": 72,
 									"top": 384,
-									"width": 75,
+									"width": 108,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -2276,7 +2276,7 @@
 									"containerExtending": false,
 									"left": 72,
 									"top": 409,
-									"width": 75,
+									"width": 108,
 									"height": 10,
 									"autoResize": false
 								},
@@ -2300,7 +2300,7 @@
 									"containerExtending": false,
 									"left": 72,
 									"top": 419,
-									"width": 75,
+									"width": 108,
 									"height": 10,
 									"autoResize": false
 								},
@@ -2367,7 +2367,7 @@
 							"containerExtending": false,
 							"left": 72,
 							"top": 384,
-							"width": 75,
+							"width": 108,
 							"height": 45,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -2502,7 +2502,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFXspSPL6QLbgQ="
 							},
-							"name": "Movement",
+							"name": "TrackMovement",
 							"visibility": "public",
 							"isAbstract": false,
 							"isFinalSpecialization": false,

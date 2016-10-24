@@ -3,18 +3,21 @@ using System.Collections;
 
 public class FetchInput : MonoBehaviour 
 {
-	private SetTrackSpeed setTrackSpeed;
-	private SpawnAssemblyLine spawner;
+	private HandleInput handleInput;
 	private void Start()
 	{
-		setTrackSpeed = GetComponent<SetTrackSpeed> ();
+		handleInput = GetComponent<HandleInput>();
 	}
 
 	private void Update()
 	{
 		if (Input.GetKeyDown (KeyCode.Space)) 
 		{
-			setTrackSpeed.setSpeed=0;
+			handleInput.Space ();
+		}
+		if(Input.GetKeyDown(KeyCode.S)||Input.GetKeyDown(KeyCode.DownArrow))
+		{
+			handleInput.Down ();
 		}
 	}
 }

@@ -18,9 +18,9 @@ public class SpawnAssemblyLine:MonoBehaviour
 	}
 	private void Spawn()
 	{
-		track = Instantiate (prefab,location.localPosition,Quaternion.identity) as GameObject;
+		track = Instantiate (prefab, location.localPosition, Quaternion.identity) as GameObject;
 		tracks.Add (track);
-		StartCoroutine (Wait());
+		StartCoroutine (Wait ());
 	}
 
 	IEnumerator Wait()

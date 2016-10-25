@@ -23,13 +23,13 @@ public class ControllParticles : MonoBehaviour
 			{
 				case true:
 				paint = false;
-				ps.emission.enabled = false;;
+				ps.Stop();
 				break;
 				case false:
 				paint = true;
-				ps.emission.enabled = true;
+				ps.Play();
 				break;
-				default:paint = false; ps.emission.enabled=false;
+				default:paint = false; ps.Stop();
 				break;
 			}
 		}

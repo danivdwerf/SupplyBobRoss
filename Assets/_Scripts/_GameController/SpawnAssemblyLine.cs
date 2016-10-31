@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class SpawnAssemblyLine:MonoBehaviour 
 {
@@ -15,12 +16,13 @@ public class SpawnAssemblyLine:MonoBehaviour
 		tracks = new List<GameObject> ();
 		waitTime = 1.3f;
 		Spawn ();
-	}
+    }
 	private void Spawn()
 	{
 		track = Instantiate (prefab, location.localPosition, Quaternion.identity) as GameObject;
 		tracks.Add (track);
-		StartCoroutine (Wait ());
+		StartCoroutine (Wait());
+     
 	}
 
 	IEnumerator Wait()
@@ -28,4 +30,13 @@ public class SpawnAssemblyLine:MonoBehaviour
 			yield return new WaitForSeconds (waitTime);
 			Spawn ();
 	}
+    private void update()
+    {
+        if (Input.GetKeyDown("Space"))
+        {
+            StopCoroutine(Wait());
+            
+        }
+       
+    }
 }

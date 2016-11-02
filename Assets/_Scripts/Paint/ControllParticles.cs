@@ -21,12 +21,17 @@ public class ControllParticles : MonoBehaviour
 		{ 
 			switch (paint)
 			{
-			case true: paint = false; ps.gameObject.SetActive (false);
-			break;
-			case false: paint = true; ps.gameObject.SetActive (true);
-			break;
-			default:paint = false; ps.gameObject.SetActive (false);
-			break;
+				case true:
+				paint = false;
+				ps.Stop();
+				break;
+				case false:
+				paint = true;
+				ps.Play();
+				ps.Play ();
+				break;
+				default:paint = false; ps.Stop();
+				break;
 			}
 		}
 	}

@@ -8,35 +8,57 @@ public class SpawnAssemblyLine:MonoBehaviour
 	[SerializeField]private GameObject prefab;
 	[SerializeField]private List<GameObject> tracks;
 	[SerializeField]private Transform location;
+    private Boolean stopSpawn; 
 	private GameObject track;
 	private float waitTime;
+    private bool isSpawning;
+    public bool IsSpawning
+    {
+        get { return isSpawning; }
+    }
 
 	private void Start()
 	{
 		tracks = new List<GameObject> ();
 		waitTime = 1.3f;
-		Spawn ();
+		StartSpawn ();
     }
-	private void Spawn()
+	public void StartSpawn()
 	{
-		track = Instantiate (prefab, location.localPosition, Quaternion.identity) as GameObject;
-		tracks.Add (track);
-		StartCoroutine (Wait());
-     
+        StopCoroutine("Wait");
+		StartCoroutine ("Wait");
+        isSpawning = true;
+        Debug.Log(waitTime);
 	}
+
+    public void StopSpawn()
+    {
+        StopCoroutine("Wait");
+        isSpawning = false;
+    }
 
 	IEnumerator Wait()
 	{
-			yield return new WaitForSeconds (waitTime);
-			Spawn ();
-	}
-    private void update()
-    {
-        if (Input.GetKeyDown("Space"))
+       while(true)
         {
-            StopCoroutine(Wait());
-            
+            track = Instantiate(prefab, location.localPosition, Quaternion.identity) as GameObject;
+            tracks.Add(track);
+            yield return new WaitForSeconds(waitTime);
         }
-       
+    }
+    public float SetTime
+    {
+        set
+        {
+           
+            if (waitTime == 1.3f)
+            {
+                waitTime = 0f;
+            }
+            if (waitTime == 0f)
+            {
+                waitTime = 1.3f;
+            }
+        }
     }
 }

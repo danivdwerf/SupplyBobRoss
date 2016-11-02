@@ -19,10 +19,14 @@ public class HandleInput : MonoBehaviour
         spawnAssemblyLine.SetTime = 0f;
 		setTrackSpeed.setSpeed=0;
 
-        if (spawnAssemblyLine.IsSpawning)
-            spawnAssemblyLine.StopSpawn();
-        else
-            spawnAssemblyLine.StartSpawn();
+		if (spawnAssemblyLine.IsSpawning)
+		{
+			spawnAssemblyLine.StopSpawn ();
+		} 
+		else
+		{
+			spawnAssemblyLine.StartSpawn ();
+		}
 	}
 
 	public void Down()

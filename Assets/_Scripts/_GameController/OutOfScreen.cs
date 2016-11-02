@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OutOfScreen : MonoBehaviour {
-
+public class OutOfScreen : MonoBehaviour 
+{
 	void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Band"))

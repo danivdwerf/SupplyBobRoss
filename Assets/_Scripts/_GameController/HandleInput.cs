@@ -4,9 +4,11 @@ using System.Collections;
 public class HandleInput : MonoBehaviour 
 {
 	private SetTrackSpeed setTrackSpeed;
+	private MachineAudio machineAudio;
 	private ControllParticles ps;
 	private void Start()
 	{
+		machineAudio = GetComponent<MachineAudio> ();
 		setTrackSpeed = GetComponent<SetTrackSpeed> ();
 		ps = GameObject.FindObjectOfType<ControllParticles> ();
 	}
@@ -18,5 +20,6 @@ public class HandleInput : MonoBehaviour
 	public void Down()
 	{
 		ps.SetBool = true;
+		machineAudio.PlayAudio ();
 	}
 }

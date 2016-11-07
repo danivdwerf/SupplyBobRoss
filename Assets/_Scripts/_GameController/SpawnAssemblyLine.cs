@@ -8,7 +8,7 @@ public class SpawnAssemblyLine:MonoBehaviour
 	[SerializeField]private GameObject prefab;
 	[SerializeField]private List<GameObject> tracks;
 	[SerializeField]private Transform location;
-    private Boolean stopSpawn; 
+	private bool stopSpawn; 
 	private GameObject track;
 	private float waitTime;
     private bool isSpawning;

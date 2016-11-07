@@ -27,11 +27,8 @@ public class ControllParticles : MonoBehaviour
 				break;
 				case false:
 				paint = true;
-<<<<<<< HEAD
 				ps.Play();
-=======
 				ps.Play ();
->>>>>>> 6d4da81a829afc65783e1cd9b349291fff2ffc8f
 				break;
 				default:paint = false; ps.Stop();
 				break;

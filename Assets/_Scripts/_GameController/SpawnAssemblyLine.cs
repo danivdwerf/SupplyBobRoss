@@ -14,7 +14,10 @@ public class SpawnAssemblyLine:MonoBehaviour
     private bool isSpawning;
     public bool IsSpawning
     {
-        get { return isSpawning; }
+        get 
+		{ 
+			return isSpawning; 
+		}
     }
 
 	private void Start()
@@ -28,7 +31,6 @@ public class SpawnAssemblyLine:MonoBehaviour
         StopCoroutine("Wait");
 		StartCoroutine ("Wait");
         isSpawning = true;
-        Debug.Log(waitTime);
 	}
 
     public void StopSpawn()

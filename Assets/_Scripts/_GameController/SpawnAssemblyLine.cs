@@ -28,7 +28,6 @@ public class SpawnAssemblyLine:MonoBehaviour
         StopCoroutine("Wait");
 		StartCoroutine ("Wait");
         isSpawning = true;
-        Debug.Log(waitTime);
 	}
 
     public void StopSpawn()

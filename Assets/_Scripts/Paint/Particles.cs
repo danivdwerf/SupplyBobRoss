@@ -14,12 +14,15 @@ public class Particles : MonoBehaviour
 		{
 			ParticleSystem.Particle[] particles = new ParticleSystem.Particle[ps.particleCount];
 			int num = ps.GetParticles (particles);
-			Debug.Log (num + "Particles Found");
 			for (int i = 0; i < num; i++)
 			{
 				particles [i].lifetime = 0;
 			}
 			ps.SetParticles (particles, num);
+		}
+		if (other.CompareTag ("Band"))
+		{
+			Debug.Log ("SPILL!");
 		}
 	}
 }

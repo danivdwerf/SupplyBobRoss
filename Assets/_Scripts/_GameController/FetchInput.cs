@@ -3,7 +3,8 @@ using System.Collections;
 
 public class FetchInput : MonoBehaviour 
 {
-	private HandleInput handleInput;
+    
+    private HandleInput handleInput;
 	private void Start()
 	{
 		handleInput = GetComponent<HandleInput>();
@@ -19,5 +20,6 @@ public class FetchInput : MonoBehaviour
 		{
 			handleInput.Down ();
 		}
+        
 	}
 }

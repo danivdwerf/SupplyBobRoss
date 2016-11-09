@@ -1,20 +1,19 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Collections;
 
 public class TrackMovement : MonoBehaviour 
 {
-	private int speed;
-	private SetTrackSpeed setTrackSpeed;
+	private float speed;
+	private Rigidbody rigid;
+	private SetTrackSpeed getSpeed;
 	void Start()
 	{
-		setTrackSpeed = GameObject.FindObjectOfType<SetTrackSpeed> ();
-	}
-	void Update()
-	{
-		speed = setTrackSpeed.setSpeed;
+		rigid = GetComponent<Rigidbody> ();
+		getSpeed = GameObject.FindGameObjectWithTag("GameController").GetComponent<SetTrackSpeed> ();
 	}
 	private void FixedUpdate()
 	{
-		transform.Translate(Vector3.forward *speed*Time.deltaTime);
+		speed = getSpeed.getTheSpeed;
+		rigid.MovePosition(rigid.transform.position + transform.forward.normalized*speed*Time.deltaTime);
 	}
 }

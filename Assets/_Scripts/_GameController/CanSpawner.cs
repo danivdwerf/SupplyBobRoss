@@ -12,13 +12,13 @@ public class CanSpawner : MonoBehaviour
 
     void Start()
     {
-        waitTime = 1.3f;
+        waitTime = 2f;
         Can();
     }
 
     void Can()
     {
-        can = Instantiate(cans [Random.Range(0,cans.Length)],location.position, Quaternion.identity) as GameObject;
+		can = Instantiate(cans [Random.Range(0,cans.Length)],location.position, Quaternion.Euler(-90f,0f,0f)) as GameObject;
         StartCoroutine("Waiting");
     }
 

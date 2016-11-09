@@ -3,29 +3,27 @@ using System.Collections;
 
 public class SetTrackSpeed : MonoBehaviour 
 {
-	private int speed;
-	private bool spawning;
-	private void Start()
-	{
-		speed = 2;
-	}
-
-	public int setSpeed
+	private float speed;
+	public float getTheSpeed
 	{
 		get
 		{ 
 			return speed;
 		}
-		set
-		{ 
-			switch (speed) 
-			{
-				case 0: speed=2;
-				break;
+	}
+	private void Awake()
+	{
+		speed = 1f;
+		StartCoroutine ("IncreaseSpeed");
+	}
 
-				case 2:speed=0;
-				break;
-			}
-		}
+	IEnumerator IncreaseSpeed()
+	{
+		while (speed < 5f)
+		{
+			speed += 0.0005f;
+			Debug.Log (speed);
+			yield return null;
+		}	
 	}
 }

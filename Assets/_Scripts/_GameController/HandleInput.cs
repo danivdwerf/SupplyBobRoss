@@ -16,13 +16,16 @@ public class HandleInput : MonoBehaviour
 	}
 	public void Space()
 	{
-        spawnAssemblyLine.SetTime = 0f;
+        //spawnAssemblyLine.SetTime = 0f;
 		setTrackSpeed.setSpeed=0;
 
-        if (spawnAssemblyLine.IsSpawning)
-            spawnAssemblyLine.StopSpawn();
-        else
-            spawnAssemblyLine.StartSpawn();
+		if (spawnAssemblyLine.IsSpawning)
+		{
+			spawnAssemblyLine.StopSpawn ();
+		} else
+		{
+			spawnAssemblyLine.StartSpawn ();
+		}
 	}
 
 	public void Down()

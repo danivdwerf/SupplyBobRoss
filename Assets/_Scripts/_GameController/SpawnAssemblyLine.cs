@@ -10,7 +10,7 @@ public class SpawnAssemblyLine:MonoBehaviour
 	[SerializeField]private Transform location;
 	private bool stopSpawn; 
 	private GameObject track;
-	private float waitTime;
+	private RaycastHit hit;
     private bool isSpawning;
     public bool IsSpawning
     {
@@ -23,44 +23,36 @@ public class SpawnAssemblyLine:MonoBehaviour
 	private void Start()
 	{
 		tracks = new List<GameObject> ();
-		waitTime = 1.3f;
 		StartSpawn ();
     }
 	public void StartSpawn()
 	{
-        StopCoroutine("Wait");
-		StartCoroutine ("Wait");
-        isSpawning = true;
+		isSpawning = true;
 	}
 
     public void StopSpawn()
     {
-        StopCoroutine("Wait");
-        isSpawning = false;
+		isSpawning = false;
     }
 
-	IEnumerator Wait()
+	private void Update()
 	{
-       while(true)
-        {
-            track = Instantiate(prefab, location.localPosition, Quaternion.identity) as GameObject;
-            tracks.Add(track);
-            yield return new WaitForSeconds(waitTime);
-        }
-    }
-    public float SetTime
-    {
-        set
-        {
-           
-            if (waitTime == 1.3f)
-            {
-                waitTime = 0f;
-            }
-            if (waitTime == 0f)
-            {
-                waitTime = 1.3f;
-            }
-        }
-    }
+		if(isSpawning)
+		{
+			if (Physics.Raycast (location.localPosition, Vector3.forward, out hit,5f))
+			{
+				if (hit.collider.gameObject.CompareTag("Band"))
+				{
+					Debug.DrawRay (location.localPosition,Vector3.forward*hit.distance,Color.red);
+
+					if (hit.distance > 3f)
+					{
+						Debug.Log (hit.distance);
+						track = Instantiate(prefab, location.localPosition + new Vector3(0, 0, 1.5001f), Quaternion.identity) as GameObject;
+						tracks.Add(track);
+					}
+				}
+			}
+		}
+	}
 }

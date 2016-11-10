@@ -4,10 +4,12 @@ using System.Collections;
 public class ParticleCollisionCheck : MonoBehaviour 
 {
 	private ParticleSystem ps;
+	private ScoreLogic scoreLogic;
 	private GameOver gameOver;
 	void Start () 
 	{
 		ps=GetComponent<ParticleSystem>();
+		scoreLogic = GameObject.FindGameObjectWithTag ("GameController").GetComponent<ScoreLogic> ();
 		gameOver = GameObject.FindObjectOfType<GameOver> ();
 	}
 	private void OnParticleCollision(GameObject other)
@@ -20,7 +22,7 @@ public class ParticleCollisionCheck : MonoBehaviour
 		if (other.CompareTag ("Can"))
 		{
 			DeleteParticles ();
-			//addScore();
+			scoreLogic.AddScore ();
 		}
 	}
 

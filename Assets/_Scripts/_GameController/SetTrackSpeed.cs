@@ -22,7 +22,6 @@ public class SetTrackSpeed : MonoBehaviour
 		while (speed < 5f)
 		{
 			speed += 0.0005f;
-			Debug.Log (speed);
 			yield return null;
 		}	
 	}

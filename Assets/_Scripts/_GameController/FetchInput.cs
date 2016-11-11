@@ -3,7 +3,6 @@ using System.Collections;
 
 public class FetchInput : MonoBehaviour 
 {
-    
     private HandleInput handleInput;
 	private void Start()
 	{
